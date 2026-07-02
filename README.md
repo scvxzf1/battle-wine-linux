@@ -1,5 +1,7 @@
 # Battle.net Wine Launcher
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 Linux launcher scaffolding for running Battle.net with Wine or GE-Proton.
 
 This repository contains only scripts, examples, and documentation. It does not
@@ -90,4 +92,3 @@ proxy configs, or crash dumps. The `.gitignore` is intentionally conservative.
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
