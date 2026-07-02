@@ -2,6 +2,15 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+## Personal Record Notice
+
+Recorded at: `2026-07-03 01:58:35 Asia/Shanghai (UTC+08:00)`.
+
+This repository is a personal record of one working Battle.net Wine / GE-Proton
+environment. It is not an out-of-the-box application, a universal installer, or
+a compatibility guarantee. Use it as a reference and adapt the paths, runtime
+versions, GPU settings, and Wine prefix choices to your own Linux system.
+
 Linux launcher scaffolding for running Battle.net with Wine or GE-Proton.
 
 This repository contains only scripts, examples, and documentation. It does not

@@ -2,6 +2,12 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+## 个人记录说明
+
+记录时间：`2026-07-03 01:58:35 Asia/Shanghai (UTC+08:00)`。
+
+这个仓库只是我个人整理的一份 Battle.net Wine / GE-Proton 环境记录。它不是开箱即用的应用程序，不是通用安装器，也不承诺在所有 Linux 环境中兼容。请把它当作参考资料，根据自己的发行版、路径、运行库版本、GPU 设置和 Wine prefix 情况进行调整。
+
 这是一个面向 Linux 的 Battle.net 启动脚手架，用于通过 Wine 或 GE-Proton 启动 Battle.net。
 
 仓库只包含脚本、示例配置和文档。它不会附带 Battle.net、本地游戏文件、Wine prefix、登录状态、代理配置或任何游戏插件逻辑。
