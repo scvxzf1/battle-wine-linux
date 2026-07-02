@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Bash syntax
+        run: |
+          bash -n \
+            scripts/run-battlenet-ge.sh \
+            scripts/run-battlenet-ge-select-gpu.sh \
+            scripts/lib/gpu-select.sh \
+            examples/run-battlenet-wine.sh \
+            tools/collect-env-report.sh
+
+      - name: Shellcheck
+        run: |
+          shellcheck \
+            scripts/run-battlenet-ge.sh \
+            scripts/run-battlenet-ge-select-gpu.sh \
+            scripts/lib/gpu-select.sh \
+            examples/run-battlenet-wine.sh \
+            tools/collect-env-report.sh
+
+      - name: Publishing guard
+        run: |
+          test -z "$(find . -path './.git' -prune -o -type f -size +5M -print)"
+          ! find . -maxdepth 3 \( -name '*.exe' -o -name '*.zip' -o -name '*.dmp' -o -name '*.reg' \) | grep .
+

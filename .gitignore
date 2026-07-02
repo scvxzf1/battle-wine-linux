@@ -1,0 +1,40 @@
+# Local runtime config
+battlenet.env
+*.env
+*.local
+
+# Wine / Proton prefixes and lock files
+proton-*/
+wine-*/
+pfx/
+*.lock
+*.reg
+*.log
+*.dmp
+
+# Installers, archives, and binaries
+*.exe
+*.msi
+*.zip
+*.7z
+*.rar
+*.dll
+
+# Personal proxy or account config
+client.config
+711proxy*.yaml
+proxy*.yaml
+
+# Screenshots / captures
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.mp4
+
+# Backups and caches
+*.bak
+__pycache__/
+.cache/
+tmp/
+
