@@ -23,6 +23,11 @@ game-specific mods.
 - It does not include Wine / Proton prefixes.
 - It does not include Hearthstone or HsMod plugin logic.
 
+## Tested Hardware
+
+This setup has been tested on NVIDIA GTX 960, GTX 1070, RTX 2060, and RTX 3080
+GPUs. The current maintainer machine is using NVIDIA driver `580.159.03`.
+
 ## Layout
 
 ```text

@@ -21,6 +21,10 @@
 - 不包含 Wine / Proton prefix。
 - 不包含 Hearthstone 或 HsMod 插件逻辑。
 
+## 已测试硬件
+
+这套启动环境已经在 NVIDIA GTX 960、GTX 1070、RTX 2060、RTX 3080 上测试过。当前维护机器使用的 NVIDIA 驱动版本是 `580.159.03`。
+
 ## 目录结构
 
 ```text
@@ -87,4 +91,3 @@ installers/Battle.net-Setup.exe
 ## 许可证
 
 MIT。详见 [LICENSE](LICENSE)。
-
