@@ -54,6 +54,12 @@ NVIDIA driver: 580.159.03
 - `nvidia-smi`：确认 NVIDIA GPU 和驱动版本。
 - `whiptail`：提供更舒服的终端选择菜单。
 
+准备非 Proton 的纯 Wine prefix 时可选：
+
+- `winetricks`
+- `cabextract`
+- `7z` / `p7zip`
+
 ## Proton 路径
 
 启动器主要使用下面几个路径概念：
@@ -92,6 +98,53 @@ $BNET_COMPAT_DATA_PATH/
 ```
 
 这个目录会被 git 忽略。它可能包含账号状态、注册表、cookies、缓存、安装器、崩溃 dump 和 Blizzard 客户端文件，不应该发布。
+
+## 运行库与 Winetricks 基线
+
+仓库不会打包微软运行库、字体文件或 Wine prefix 内容。这里记录的是已经验证可用的 Battle.net Wine prefix 运行库基线。
+
+已验证的 winetricks 基线是：
+
+```text
+win10
+corefonts
+vcrun2022
+```
+
+同样的清单放在：
+
+```text
+examples/winetricks-runtime.txt
+```
+
+含义：
+
+- `win10`：把 Wine 的 Windows 版本设为 Windows 10。
+- `corefonts`：安装常见 Microsoft 核心字体。实际 `winetricks.log` 里可能展开成 `andale`、`arial`、`comicsans`、`courier`、`georgia`、`impact`、`times`、`trebuchet`、`verdana`、`webdings`。
+- `vcrun2022`：安装 Visual C++ 2015-2022 运行库，很多现代 Windows 程序都会依赖它。
+
+纯 Wine prefix 的等价准备命令：
+
+```bash
+WINEPREFIX=/path/to/wine-battlenet winetricks -q win10 corefonts vcrun2022
+```
+
+Proton prefix 优先使用 GE-Proton 自带运行层。如果你要对 Proton prefix 使用 winetricks/protontricks，把它当作高级操作，先备份 prefix。
+
+## GE-Proton 自带运行层
+
+GE-Proton 本身已经附带了很多关键运行层。在当前维护基线 `GE-Proton10-34` 中可见：
+
+```text
+files/lib/wine/dxvk
+files/lib/wine/vkd3d-proton
+files/lib/wine/nvapi
+files/share/wine/mono
+files/share/wine/gecko
+files/share/wine/fonts
+```
+
+这些内容不会复制进本仓库，它们属于用户本机安装的 GE-Proton。
 
 ## Battle.net 客户端路径
 
@@ -190,6 +243,8 @@ export all_proxy=socks5://127.0.0.1:7890
 
 报告会包含 OS、内核、桌面会话、关键命令是否存在、Wine / Proton 路径、compat data 是否存在和 GPU 摘要。它会刻意避开注册表 dump、token、cookies、Battle.net 账号状态和完整 prefix 文件列表。
 
+它还会报告 `winetricks` 是否可用、prefix 内是否存在 `winetricks.log`，以及 GE-Proton 自带的 DXVK / vkd3d-proton / nvapi / mono / gecko 目录是否存在。
+
 ## 永远不应该发布的内容
 
 不要发布：
@@ -204,4 +259,3 @@ export all_proxy=socks5://127.0.0.1:7890
 - 日志或崩溃 dump
 - 带密码的代理配置
 - cookies、token 或登录状态
-

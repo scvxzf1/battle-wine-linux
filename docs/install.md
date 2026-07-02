@@ -8,6 +8,8 @@
 - `curl`, `unzip`, and basic shell tools.
 - `vulkaninfo` and `lspci` are recommended for GPU detection.
 - `whiptail` is optional for a nicer terminal menu.
+- `winetricks`, `cabextract`, and `7z` / `p7zip` are optional when preparing
+  plain Wine prefixes.
 
 For a detailed description of the Wine / Proton stack, see
 [wine-environment.md](wine-environment.md).
@@ -55,3 +57,13 @@ Then run:
 
 If Battle.net is not installed in the configured prefix, the script starts the
 installer. After installation, run the script again to start the client.
+
+## Optional Plain Wine Runtime Baseline
+
+For non-Proton Wine prefixes, the observed baseline is:
+
+```bash
+WINEPREFIX=/path/to/wine-battlenet winetricks -q win10 corefonts vcrun2022
+```
+
+The same verb list is stored in `examples/winetricks-runtime.txt`.

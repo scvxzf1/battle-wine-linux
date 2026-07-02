@@ -77,7 +77,7 @@ echo "WAYLAND_DISPLAY: ${WAYLAND_DISPLAY:+set}"
 echo
 
 echo "## Commands"
-for cmd in wine vulkaninfo lspci nvidia-smi whiptail curl unzip; do
+for cmd in wine winetricks cabextract 7z vulkaninfo lspci nvidia-smi whiptail curl unzip; do
   print_cmd_status "$cmd"
 done
 echo
@@ -88,10 +88,18 @@ if has_cmd wine; then
 else
   echo "Wine: not found"
 fi
+if has_cmd winetricks; then
+  echo "Winetricks: $(winetricks --version 2>/dev/null | head -1 || true)"
+else
+  echo "Winetricks: not found"
+fi
 echo "Steam root: $(display_path "$STEAM_ROOT")"
 echo "Proton: $(display_path "$PROTON")"
 if [ -n "$PROTON" ] && [ -x "$PROTON" ]; then
   echo "Proton executable: yes"
+  if [ -r "$(dirname "$PROTON")/version" ]; then
+    echo "Proton version: $(cat "$(dirname "$PROTON")/version")"
+  fi
 else
   echo "Proton executable: no"
 fi
@@ -109,6 +117,13 @@ if [ -f "$CLIENT" ]; then
   echo "Battle.net client: yes"
 else
   echo "Battle.net client: no"
+fi
+if [ -f "$COMPAT_DATA_PATH/pfx/winetricks.log" ]; then
+  echo "Winetricks log: yes"
+  echo "Winetricks verbs:"
+  sed 's/^/  - /' "$COMPAT_DATA_PATH/pfx/winetricks.log" 2>/dev/null | sed -n '1,80p'
+else
+  echo "Winetricks log: no"
 fi
 echo
 
@@ -140,3 +155,22 @@ if has_cmd lspci; then
     | awk 'BEGIN { IGNORECASE = 1 } /VGA compatible controller|3D controller|Display controller/ { sub(/^.*: /, ""); print "- PCI: " $0 }'
 fi
 
+echo
+echo "## Bundled Proton Runtime Components"
+if [ -n "$PROTON" ] && [ -d "$(dirname "$PROTON")/files" ]; then
+  proton_root="$(dirname "$PROTON")"
+  for component in \
+    "files/lib/wine/dxvk" \
+    "files/lib/wine/vkd3d-proton" \
+    "files/lib/wine/nvapi" \
+    "files/share/wine/mono" \
+    "files/share/wine/gecko"; do
+    if [ -e "$proton_root/$component" ]; then
+      echo "- $component: present"
+    else
+      echo "- $component: missing"
+    fi
+  done
+else
+  echo "- Proton files directory not found"
+fi

@@ -1,0 +1,7 @@
+# Optional winetricks baseline observed in working Battle.net Wine prefixes.
+# This file is a list of verbs, not bundled runtime binaries.
+
+win10
+corefonts
+vcrun2022
+

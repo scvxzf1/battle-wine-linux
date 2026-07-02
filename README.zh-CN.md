@@ -39,6 +39,14 @@ $BNET_COMPAT_DATA_PATH/pfx
 
 [docs/wine-environment.zh-CN.md](docs/wine-environment.zh-CN.md)
 
+已验证的可选 winetricks 运行库基线是：
+
+```text
+win10
+corefonts
+vcrun2022
+```
+
 ## 目录结构
 
 ```text
@@ -50,6 +58,7 @@ scripts/
 examples/
   battlenet.env.example            本地配置模板
   proxy.env.example                可选代理环境变量模板
+  winetricks-runtime.txt           可选 Wine 运行库基线
   run-battlenet-wine.sh            纯 Wine 启动示例
 
 tools/

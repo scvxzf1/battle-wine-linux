@@ -35,6 +35,18 @@ BNET_COMPAT_DATA_PATH
 
 See [wine-environment.md](wine-environment.md) for more detail.
 
+## Runtime Baseline
+
+For plain Wine prefixes, the observed winetricks baseline is:
+
+```text
+win10
+corefonts
+vcrun2022
+```
+
+This is recorded in `examples/winetricks-runtime.txt`.
+
 ## Proxy
 
 Proxy settings are intentionally not stored in the tracked config. Use:

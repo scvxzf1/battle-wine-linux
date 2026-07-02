@@ -44,6 +44,14 @@ See [docs/wine-environment.md](docs/wine-environment.md) for the detailed
 runtime model, prefix layout, environment variables, GPU stack, and publishing
 safety notes.
 
+The observed optional winetricks baseline for working Wine prefixes is:
+
+```text
+win10
+corefonts
+vcrun2022
+```
+
 ## Layout
 
 ```text
@@ -55,6 +63,7 @@ scripts/
 examples/
   battlenet.env.example            Local configuration template
   proxy.env.example                Optional proxy environment template
+  winetricks-runtime.txt           Optional Wine runtime baseline
   run-battlenet-wine.sh            Pure Wine launcher example
 
 tools/

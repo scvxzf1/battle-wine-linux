@@ -55,6 +55,12 @@ Recommended:
 - `nvidia-smi`, NVIDIA driver and GPU confirmation.
 - `whiptail`, interactive terminal menu.
 
+Optional when preparing non-Proton Wine prefixes:
+
+- `winetricks`
+- `cabextract`
+- `7z` / `p7zip`
+
 ## Proton Paths
 
 The launcher uses these concepts:
@@ -96,6 +102,63 @@ For a default checkout, that means:
 This directory is intentionally ignored by git. It may contain account state,
 registry data, cookies, caches, installers, crash dumps, and Blizzard client
 files.
+
+## Runtime Libraries And Winetricks Baseline
+
+The repository does not bundle Microsoft redistributables, fonts, or Wine prefix
+contents. Instead, it documents the runtime baseline observed in the working
+Battle.net Wine prefixes.
+
+The verified winetricks baseline is:
+
+```text
+win10
+corefonts
+vcrun2022
+```
+
+The same list is tracked in:
+
+```text
+examples/winetricks-runtime.txt
+```
+
+Meaning:
+
+- `win10`: sets the Wine Windows version to Windows 10.
+- `corefonts`: installs common Microsoft core fonts. The resulting
+  `winetricks.log` may expand this into `andale`, `arial`, `comicsans`,
+  `courier`, `georgia`, `impact`, `times`, `trebuchet`, `verdana`, and
+  `webdings`.
+- `vcrun2022`: installs the Visual C++ 2015-2022 runtime used by many modern
+  Windows applications.
+
+For plain Wine prefixes, the equivalent preparation command is:
+
+```bash
+WINEPREFIX=/path/to/wine-battlenet winetricks -q win10 corefonts vcrun2022
+```
+
+For Proton prefixes, prefer GE-Proton's bundled runtime first. If you do use
+winetricks/protontricks on a Proton prefix, treat it as an advanced operation
+and back up the prefix first.
+
+## GE-Proton Bundled Runtime Components
+
+GE-Proton already ships several important runtime layers. On the maintainer
+baseline, `GE-Proton10-34` contains:
+
+```text
+files/lib/wine/dxvk
+files/lib/wine/vkd3d-proton
+files/lib/wine/nvapi
+files/share/wine/mono
+files/share/wine/gecko
+files/share/wine/fonts
+```
+
+Those are not copied into this repository. They are part of the user's local
+GE-Proton installation.
 
 ## Battle.net Client Path
 
@@ -201,6 +264,10 @@ Proton paths, compat data existence, and GPU summaries. It intentionally avoids
 registry dumps, tokens, cookies, Battle.net account state, and full prefix file
 lists.
 
+It also reports whether `winetricks` is available, whether a prefix
+`winetricks.log` exists, and whether GE-Proton's bundled DXVK / vkd3d-proton /
+nvapi / mono / gecko directories are present.
+
 ## What Should Never Be Published
 
 Do not publish:
@@ -215,4 +282,3 @@ Do not publish:
 - logs or crash dumps
 - proxy configs with passwords
 - cookies, tokens, or login state
-
