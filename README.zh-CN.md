@@ -25,6 +25,20 @@
 
 这套启动环境已经在 NVIDIA GTX 960、GTX 1070、RTX 2060、RTX 3080 上测试过。当前维护机器使用的 NVIDIA 驱动版本是 `580.159.03`。
 
+## Wine / Proton 环境
+
+主路径使用 GE-Proton，并使用独立的 compat data 目录。真正的 Wine prefix 位于：
+
+```text
+$BNET_COMPAT_DATA_PATH/pfx
+```
+
+当前维护环境基线是 Ubuntu 24.04.4 LTS、Wayland / GNOME、Wine `9.0`、GE-Proton `GE-Proton10-34`、NVIDIA 驱动 `580.159.03`。
+
+详细运行模型、prefix 结构、环境变量、GPU 图形栈和开源安全边界见：
+
+[docs/wine-environment.zh-CN.md](docs/wine-environment.zh-CN.md)
+
 ## 目录结构
 
 ```text
@@ -46,6 +60,8 @@ docs/
   configuration.md
   gpu-select.md
   proton-ge.md
+  wine-environment.md
+  wine-environment.zh-CN.md
   troubleshooting.md
   security.md
 ```

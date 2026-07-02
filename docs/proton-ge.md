@@ -1,5 +1,8 @@
 # GE-Proton Notes
 
+For the complete environment model, prefix layout, and runtime variables, see
+[wine-environment.md](wine-environment.md).
+
 The main launcher uses Proton outside Steam by setting:
 
 ```bash
@@ -26,4 +29,3 @@ This directory is ignored by git.
 
 `PROTON_USE_XALIA=0` is the default because Xalia can crash under some
 non-Steam desktop launches.
-

@@ -1,5 +1,8 @@
 # Troubleshooting
 
+Start with the environment model in [wine-environment.md](wine-environment.md)
+when you need to compare another machine with the known working baseline.
+
 ## Battle.net Installer Does Not Start
 
 Check:
@@ -39,4 +42,3 @@ Do not commit proxy credentials.
 source ./my-proxy.env
 ./scripts/run-battlenet-ge.sh
 ```
-

@@ -9,6 +9,9 @@
 - `vulkaninfo` and `lspci` are recommended for GPU detection.
 - `whiptail` is optional for a nicer terminal menu.
 
+For a detailed description of the Wine / Proton stack, see
+[wine-environment.md](wine-environment.md).
+
 ## Install GE-Proton
 
 Install GE-Proton with your preferred tool, such as ProtonUp-Qt, or place it
@@ -52,4 +55,3 @@ Then run:
 
 If Battle.net is not installed in the configured prefix, the script starts the
 installer. After installation, run the script again to start the client.
-

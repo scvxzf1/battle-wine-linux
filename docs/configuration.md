@@ -22,6 +22,19 @@ BNET_PERFORMANCE_MODE=auto
 BNET_DXVK_HUD=0
 ```
 
+The most important path relationship is:
+
+```text
+BNET_COMPAT_DATA_PATH
+  -> pfx
+    -> drive_c
+      -> Program Files (x86)
+        -> Battle.net
+          -> Battle.net.exe
+```
+
+See [wine-environment.md](wine-environment.md) for more detail.
+
 ## Proxy
 
 Proxy settings are intentionally not stored in the tracked config. Use:
@@ -32,4 +45,3 @@ source examples/proxy.env.example
 ```
 
 Or create your own untracked local proxy file.
-

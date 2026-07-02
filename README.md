@@ -28,6 +28,22 @@ game-specific mods.
 This setup has been tested on NVIDIA GTX 960, GTX 1070, RTX 2060, and RTX 3080
 GPUs. The current maintainer machine is using NVIDIA driver `580.159.03`.
 
+## Wine / Proton Environment
+
+The main path uses GE-Proton with a dedicated compat data directory. The Wine
+prefix lives under:
+
+```text
+$BNET_COMPAT_DATA_PATH/pfx
+```
+
+The maintainer baseline is Ubuntu 24.04.4 LTS, Wayland / GNOME, Wine `9.0`,
+GE-Proton `GE-Proton10-34`, and NVIDIA driver `580.159.03`.
+
+See [docs/wine-environment.md](docs/wine-environment.md) for the detailed
+runtime model, prefix layout, environment variables, GPU stack, and publishing
+safety notes.
+
 ## Layout
 
 ```text
@@ -49,6 +65,8 @@ docs/
   configuration.md
   gpu-select.md
   proton-ge.md
+  wine-environment.md
+  wine-environment.zh-CN.md
   troubleshooting.md
   security.md
 ```
