@@ -12,7 +12,8 @@
   plain Wine prefixes.
 
 For a detailed description of the Wine / Proton stack, see
-[wine-environment.md](wine-environment.md).
+[wine-environment.md](wine-environment.md). For the source list of installers,
+runtimes, fonts, and GE-Proton, see [runtime-sources.md](runtime-sources.md).
 
 ## Install GE-Proton
 
@@ -25,6 +26,9 @@ under:
 
 The launcher tries to auto-detect the newest `proton` executable in that
 directory. If that fails, set `BNET_PROTON` in `battlenet.env`.
+
+GE-Proton itself is not bundled. Download sources are recorded in
+[runtime-sources.md](runtime-sources.md).
 
 ## Configure
 
@@ -49,6 +53,8 @@ Download the official Battle.net installer from Blizzard and place it at:
 installers/Battle.net-Setup.exe
 ```
 
+The installer is intentionally ignored by git. Keep it local.
+
 Then run:
 
 ```bash
@@ -67,3 +73,5 @@ WINEPREFIX=/path/to/wine-battlenet winetricks -q win10 corefonts vcrun2022
 ```
 
 The same verb list is stored in `examples/winetricks-runtime.txt`.
+Download/source notes for the generated Microsoft DLLs and fonts are stored in
+`docs/runtime-sources.md` and `examples/runtime-sources.txt`.

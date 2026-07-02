@@ -107,7 +107,8 @@ files.
 
 The repository does not bundle Microsoft redistributables, fonts, or Wine prefix
 contents. Instead, it documents the runtime baseline observed in the working
-Battle.net Wine prefixes.
+Battle.net Wine prefixes. Download and acquisition sources are centralized in
+[runtime-sources.md](runtime-sources.md).
 
 The verified winetricks baseline is:
 
@@ -121,6 +122,12 @@ The same list is tracked in:
 
 ```text
 examples/winetricks-runtime.txt
+```
+
+The upstream/source list is tracked in:
+
+```text
+examples/runtime-sources.txt
 ```
 
 Meaning:

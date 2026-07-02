@@ -1,0 +1,41 @@
+# Runtime acquisition sources for Battle.net Wine Launcher.
+# This is a text source list only. Do not commit downloaded binaries.
+
+Steam:
+  https://store.steampowered.com/about/
+
+GE-Proton releases:
+  https://github.com/GloriousEggroll/proton-ge-custom/releases
+
+ProtonUp-Qt:
+  https://github.com/DavidoTek/ProtonUp-Qt
+
+Battle.net installer:
+  https://download.battle.net/
+  local path: installers/Battle.net-Setup.exe
+
+Winetricks:
+  https://github.com/Winetricks/winetricks
+
+Microsoft Visual C++ Redistributable reference:
+  https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist
+  plain Wine verb: vcrun2022
+
+Microsoft core fonts:
+  plain Wine verb: corefonts
+
+Plain Wine baseline:
+  WINEPREFIX=/path/to/wine-battlenet winetricks -q win10 corefonts vcrun2022
+
+GE-Proton bundled runtime layers observed in GE-Proton10-34:
+  files/lib/wine/dxvk
+  files/lib/wine/vkd3d-proton
+  files/lib/wine/nvapi
+  files/share/wine/mono
+  files/share/wine/gecko
+  files/share/wine/fonts
+
+Upstream runtime projects for diagnostics:
+  DXVK: https://github.com/doitsujin/dxvk
+  vkd3d-proton: https://github.com/HansKristian-Work/vkd3d-proton
+  dxvk-nvapi: https://github.com/jp7677/dxvk-nvapi

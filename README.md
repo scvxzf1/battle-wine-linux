@@ -42,7 +42,8 @@ GE-Proton `GE-Proton10-34`, and NVIDIA driver `580.159.03`.
 
 See [docs/wine-environment.md](docs/wine-environment.md) for the detailed
 runtime model, prefix layout, environment variables, GPU stack, and publishing
-safety notes.
+safety notes. See [docs/runtime-sources.md](docs/runtime-sources.md) for the
+official/upstream source list for installers, runtimes, fonts, and GE-Proton.
 
 The observed optional winetricks baseline for working Wine prefixes is:
 
@@ -64,6 +65,7 @@ examples/
   battlenet.env.example            Local configuration template
   proxy.env.example                Optional proxy environment template
   winetricks-runtime.txt           Optional Wine runtime baseline
+  runtime-sources.txt              Text list of upstream acquisition sources
   run-battlenet-wine.sh            Pure Wine launcher example
 
 tools/
@@ -74,6 +76,8 @@ docs/
   configuration.md
   gpu-select.md
   proton-ge.md
+  runtime-sources.md
+  runtime-sources.zh-CN.md
   wine-environment.md
   wine-environment.zh-CN.md
   troubleshooting.md
@@ -82,7 +86,8 @@ docs/
 
 ## Quick Start
 
-1. Install Steam and GE-Proton.
+1. Install Steam and GE-Proton. Source links are tracked in
+   [docs/runtime-sources.md](docs/runtime-sources.md).
 2. Copy the config template:
 
 ```bash

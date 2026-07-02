@@ -101,7 +101,7 @@ $BNET_COMPAT_DATA_PATH/
 
 ## 运行库与 Winetricks 基线
 
-仓库不会打包微软运行库、字体文件或 Wine prefix 内容。这里记录的是已经验证可用的 Battle.net Wine prefix 运行库基线。
+仓库不会打包微软运行库、字体文件或 Wine prefix 内容。这里记录的是已经验证可用的 Battle.net Wine prefix 运行库基线。下载和获取来源集中记录在 [runtime-sources.zh-CN.md](runtime-sources.zh-CN.md)。
 
 已验证的 winetricks 基线是：
 
@@ -115,6 +115,12 @@ vcrun2022
 
 ```text
 examples/winetricks-runtime.txt
+```
+
+上游/来源清单放在：
+
+```text
+examples/runtime-sources.txt
 ```
 
 含义：

@@ -39,6 +39,10 @@ $BNET_COMPAT_DATA_PATH/pfx
 
 [docs/wine-environment.zh-CN.md](docs/wine-environment.zh-CN.md)
 
+安装器、运行库、字体和 GE-Proton 的官方/上游来源清单见：
+
+[docs/runtime-sources.zh-CN.md](docs/runtime-sources.zh-CN.md)
+
 已验证的可选 winetricks 运行库基线是：
 
 ```text
@@ -59,6 +63,7 @@ examples/
   battlenet.env.example            本地配置模板
   proxy.env.example                可选代理环境变量模板
   winetricks-runtime.txt           可选 Wine 运行库基线
+  runtime-sources.txt              上游获取来源文本清单
   run-battlenet-wine.sh            纯 Wine 启动示例
 
 tools/
@@ -69,6 +74,8 @@ docs/
   configuration.md
   gpu-select.md
   proton-ge.md
+  runtime-sources.md
+  runtime-sources.zh-CN.md
   wine-environment.md
   wine-environment.zh-CN.md
   troubleshooting.md
@@ -77,7 +84,7 @@ docs/
 
 ## 快速开始
 
-1. 安装 Steam 和 GE-Proton。
+1. 安装 Steam 和 GE-Proton。来源链接记录在 [docs/runtime-sources.zh-CN.md](docs/runtime-sources.zh-CN.md)。
 2. 复制配置模板：
 
 ```bash
